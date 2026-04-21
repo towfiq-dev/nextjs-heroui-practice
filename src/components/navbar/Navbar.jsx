@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, Button } from "@heroui/react";
 import ThemeSwitch from '../toggole/ThemeSwitch';
+import ActiveNav from './ActiveNav';
 const Navbar = () => {
 
   return (
@@ -12,10 +13,10 @@ const Navbar = () => {
       <p className="font-bold">ACME</p>
     </div>
     <ul className="flex items-center gap-7">
-      <li><Link className="font-bold text-[17px]" href="/">Home</Link></li>
-      <li><Link className="font-bold text-[17px]" href="/tasks">Tasks</Link></li>
-      <li><Link className="font-bold text-[17px]" href="/profile">Profile</Link></li>
-      <li><Link className="font-bold text-[17px]" href="/pricing">Pricing</Link></li>
+      <ActiveNav href="/">Home</ActiveNav>
+      <ActiveNav href="/tasks">Tasks</ActiveNav>
+      <ActiveNav href="/profile">Profile</ActiveNav>
+      <ActiveNav href="/pricing">Pricing</ActiveNav>
     </ul>
     <div>
       <ThemeSwitch/>
