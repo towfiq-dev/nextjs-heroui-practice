@@ -3,7 +3,6 @@ import React from 'react';
 import {Envelope} from "@gravity-ui/icons";
 import {Button, Input, Label, ListBox, Modal, Surface, Select, TextField} from "@heroui/react";
 
-
 const AddTask = ({createATask}) => {
   return (
     <Modal>
@@ -114,7 +113,7 @@ const AddTask = ({createATask}) => {
               <Button slot="close" variant="secondary">
                 Cancel
               </Button>
-              <Button type='submit'>Submit</Button>
+              <Button  type='submit'>Submit</Button>
             </Modal.Footer>
                 </form>
               </Surface>
