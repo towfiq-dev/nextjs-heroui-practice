@@ -1,10 +1,10 @@
 "use client";
 import React from 'react';
 import {Envelope} from "@gravity-ui/icons";
-import {Button, Input, Label, Modal, Surface, TextField} from "@heroui/react";
+import {Button, Input, Label, ListBox, Modal, Surface, Select, TextField} from "@heroui/react";
 
 
-const AddTask = () => {
+const AddTask = ({createATask}) => {
   return (
     <Modal>
       <Button variant="secondary">Open Task Form</Button>
@@ -24,22 +24,87 @@ const AddTask = () => {
             </Modal.Header>
             <Modal.Body className="p-6">
               <Surface variant="default">
-                <form className="flex flex-col gap-4">
+                <form action={createATask} className="flex flex-col gap-4">
                   <TextField className="w-full" name="name" type="text">
                     <Label>Name</Label>
                     <Input placeholder="Enter your name" />
+                  </TextField>
+                  <TextField className="w-full" name="title" type="text">
+                    <Label>Title</Label>
+                    <Input placeholder="Enter your task title" />
+                  </TextField>
+                  <TextField className="w-full" name="description" type="text">
+                    <Label>Description</Label>
+                    <Input placeholder="Enter your task Description" />
                   </TextField>
                   <TextField className="w-full" name="email" type="email">
                     <Label>Email</Label>
                     <Input placeholder="Enter your email" />
                   </TextField>
-                  <TextField className="w-full" name="phone" type="tel">
-                    <Label>Phone</Label>
-                    <Input placeholder="Enter your phone number" />
-                  </TextField>
-                  <TextField className="w-full" name="company">
-                    <Label>Company</Label>
-                    <Input placeholder="Enter your company name" />
+    <Select name='priority' className="w-[256px]" placeholder="Select one">
+      <Label>Priority</Label>
+      <Select.Trigger>
+        <Select.Value />
+        <Select.Indicator />
+      </Select.Trigger>
+      <Select.Popover>
+        <ListBox>
+          <ListBox.Item id="high" textValue="High">
+            High
+            <ListBox.ItemIndicator />
+          </ListBox.Item>
+          <ListBox.Item id="medium" textValue="Medium">
+            Medium
+            <ListBox.ItemIndicator />
+          </ListBox.Item>
+          <ListBox.Item id="low" textValue="Low">
+            Low
+            <ListBox.ItemIndicator />
+          </ListBox.Item>
+        </ListBox>
+      </Select.Popover>
+    </Select>
+
+    <Select name='status' className="w-[256px]" placeholder="Select one">
+      <Label>Status</Label>
+      <Select.Trigger>
+        <Select.Value />
+        <Select.Indicator />
+      </Select.Trigger>
+      <Select.Popover>
+        <ListBox>
+          <ListBox.Item id="InProgress" textValue="In Progress">
+            In Progress
+            <ListBox.ItemIndicator />
+          </ListBox.Item>
+          <ListBox.Item id="UnderReview" textValue="Under Review">
+            Under Review
+            <ListBox.ItemIndicator />
+          </ListBox.Item>
+          <ListBox.Item id="Pending" textValue="Pending">
+            Pending
+            <ListBox.ItemIndicator />
+          </ListBox.Item>
+          <ListBox.Item id="To-Do" textValue="To-Do">
+            To-Do
+            <ListBox.ItemIndicator />
+          </ListBox.Item>
+          <ListBox.Item id="Completed" textValue="Completed">
+            Completed
+            <ListBox.ItemIndicator />
+          </ListBox.Item>
+          <ListBox.Item id="OnHold" textValue="On Hold">
+            On Hold
+            <ListBox.ItemIndicator />
+          </ListBox.Item>
+        </ListBox>
+      </Select.Popover>
+    </Select>
+
+
+                  <TextField className="w-full" name="assignedTo">
+                    <Label>assignedTo</Label>
+                    <Input placeholder="Enter your assignedTo name" />
                   </TextField>
                   <TextField className="w-full" name="message">
                     <Label>Message</Label>
@@ -49,7 +114,7 @@ const AddTask = () => {
               <Button slot="close" variant="secondary">
                 Cancel
               </Button>
-              <Button type={submit}>Submit</Button>
+              <Button type='submit'>Submit</Button>
             </Modal.Footer>
                 </form>
               </Surface>
