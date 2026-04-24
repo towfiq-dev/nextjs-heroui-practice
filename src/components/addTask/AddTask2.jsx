@@ -1,29 +1,11 @@
 "use client";
 import React from 'react';
-import {Envelope} from "@gravity-ui/icons";
-import {Button, Input, Label, ListBox, Modal, Surface, Select, TextField} from "@heroui/react";
+import {Button, Input, Label, Modal, TextField} from "@heroui/react";
 
-const AddTask2 = ({createATask}) => {
+const AddTask2 = ({addingTask}) => {
   return (
-    <Modal>
-      <Button variant="secondary">Open Task Form</Button>
-      <Modal.Backdrop>
-        <Modal.Container placement="auto">
-          <Modal.Dialog className="sm:max-w-md">
-            <Modal.CloseTrigger />
-            <Modal.Header>
-              <Modal.Icon className="bg-accent-soft text-accent-soft-foreground">
-                <Envelope className="size-5" />
-              </Modal.Icon>
-              <Modal.Heading>Add a Task</Modal.Heading>
-              <p className="mt-1.5 text-sm leading-5 text-muted">
-                Fill out the form below and well get back to you. The modal adapts automatically
-                when the keyboard appears on mobile.
-              </p>
-            </Modal.Header>
-            <Modal.Body className="p-6">
-              <Surface variant="default">
-                <form action={createATask} className="flex flex-col gap-4">
+    <div>
+      <form className="flex flex-col gap-4" action={addingTask}>
                   <TextField className="w-full" name="name" type="text">
                     <Label>Name</Label>
                     <Input placeholder="Enter your name" />
@@ -40,89 +22,14 @@ const AddTask2 = ({createATask}) => {
                     <Label>Email</Label>
                     <Input placeholder="Enter your email" />
                   </TextField>
-    <Select name='priority' className="w-[256px]" placeholder="Select one">
-      <Label>Priority</Label>
-      <Select.Trigger>
-        <Select.Value />
-        <Select.Indicator />
-      </Select.Trigger>
-      <Select.Popover>
-        <ListBox>
-          <ListBox.Item id="high" textValue="High">
-            High
-            <ListBox.ItemIndicator />
-          </ListBox.Item>
-          <ListBox.Item id="medium" textValue="Medium">
-            Medium
-            <ListBox.ItemIndicator />
-          </ListBox.Item>
-          <ListBox.Item id="low" textValue="Low">
-            Low
-            <ListBox.ItemIndicator />
-          </ListBox.Item>
-        </ListBox>
-      </Select.Popover>
-    </Select>
-
-    <Select name='status' className="w-[256px]" placeholder="Select one">
-      <Label>Status</Label>
-      <Select.Trigger>
-        <Select.Value />
-        <Select.Indicator />
-      </Select.Trigger>
-      <Select.Popover>
-        <ListBox>
-          <ListBox.Item id="InProgress" textValue="In Progress">
-            In Progress
-            <ListBox.ItemIndicator />
-          </ListBox.Item>
-          <ListBox.Item id="UnderReview" textValue="Under Review">
-            Under Review
-            <ListBox.ItemIndicator />
-          </ListBox.Item>
-          <ListBox.Item id="Pending" textValue="Pending">
-            Pending
-            <ListBox.ItemIndicator />
-          </ListBox.Item>
-          <ListBox.Item id="To-Do" textValue="To-Do">
-            To-Do
-            <ListBox.ItemIndicator />
-          </ListBox.Item>
-          <ListBox.Item id="Completed" textValue="Completed">
-            Completed
-            <ListBox.ItemIndicator />
-          </ListBox.Item>
-          <ListBox.Item id="OnHold" textValue="On Hold">
-            On Hold
-            <ListBox.ItemIndicator />
-          </ListBox.Item>
-        </ListBox>
-      </Select.Popover>
-    </Select>
-
-
-                  <TextField className="w-full" name="assignedTo">
-                    <Label>assignedTo</Label>
-                    <Input placeholder="Enter your assignedTo name" />
-                  </TextField>
-                  <TextField className="w-full" name="message">
-                    <Label>Message</Label>
-                    <Input placeholder="Enter your message" />
-                  </TextField>
                   <Modal.Footer>
               <Button slot="close" variant="secondary">
                 Cancel
               </Button>
               <Button  type='submit'>Submit</Button>
             </Modal.Footer>
-                </form>
-              </Surface>
-            </Modal.Body>
-            
-          </Modal.Dialog>
-        </Modal.Container>
-      </Modal.Backdrop>
-    </Modal>
+            </form>
+    </div>
   );
 };
 
