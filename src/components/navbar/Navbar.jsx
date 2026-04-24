@@ -15,6 +15,7 @@ const Navbar = () => {
     <ul className="flex items-center gap-7">
       <ActiveNav href="/">Home</ActiveNav>
       <ActiveNav href="/tasks">Tasks</ActiveNav>
+      <ActiveNav href="/task2">Tasks2</ActiveNav>
       <ActiveNav href="/profile">Profile</ActiveNav>
       <ActiveNav href="/pricing">Pricing</ActiveNav>
     </ul>
